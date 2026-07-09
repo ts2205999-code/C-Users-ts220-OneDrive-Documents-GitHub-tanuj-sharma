@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tanuj Sharma AI – Future of Intelligence</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0f;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            background-image: radial-gradient(circle at 20% 30%, #141028, #030308);
+        }
+
+        /* Glowing orb background */
+        .glow-orb {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, #7c3aed20, transparent 70%);
+            top: -200px;
+            right: -200px;
+            z-index: 0;
+            filter: blur(80px);
+            pointer-events: none;
+        }
+
+        .glow-orb2 {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #2563eb20, transparent 70%);
+            bottom: -150px;
+            left: -150px;
+            z-index: 0;
+            filter: blur(90px);
+            pointer-events: none;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+            background: rgba(10, 10, 20, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: 48px;
+            padding: 2.8rem 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9), inset 0 0 100px rgba(124, 58, 237, 0.03);
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .brand-icon {
+            width: 54px;
+            height: 54px;
+            background: linear-gradient(135deg, #7c3aed, #4f46e5);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #fff;
+            box-shadow: 0 0 40px #7c3aed50;
+            transform: rotate(-4deg);
+            transition: 0.3s;
+        }
+
+        .brand:hover .brand-icon {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .brand-text h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #e0d7ff, #a78bfa, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .brand-text .tag {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .brand-text .tag i {
+            color: #60a5fa;
+            font-size: 0.5rem;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .founder-badge {
+            background: rgba(167, 139, 250, 0.08);
+            border: 1px solid #7c3aed30;
+            padding: 0.5rem 1.4rem;
+            border-radius: 60px;
+            font-size: 0.8rem;
+            color: #c4b5fd;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .founder-badge i {
+            color: #fbbf24;
+        }
+
+        .status-dot {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.75rem;
+            color: #34d399;
+        }
+
+        .status-dot .dot {
+            width: 8px;
+            height: 8px;
+            background: #34d399;
+            border-radius: 50%;
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.4;
+                transform: scale(0.8);
+            }
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            margin: 1.5rem 0 2rem 0;
+            text-align: center;
+            padding: 2.2rem 1.5rem;
+            background: linear-gradient(145deg, #1e1b3a20, #0f0f1e40);
+            border-radius: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, #7c3aed10, transparent, #2563eb10, transparent);
+            animation: rotate-bg 20s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes rotate-bg {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .hero h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h2 .highlight {
+            background: linear-gradient(135deg, #a78bfa, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero .sub-hero {
+            font-size: 1.3rem;
+            color: #cbd5e1;
+            margin-top: 10px;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+        }
+
+        .hero .sub-hero strong {
+            color: #f1f5f9;
+            font-weight: 600;
+        }
+
+        .hero .badge-row {
+            margin-top: 16px;
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero .badge-row span {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 0.3rem 1.2rem;
+            border-radius: 60px;
+            font-size: 0.75rem;
+            color: #94a3b8;
+            border: 1px solid #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hero .badge-row span i {
+            color: #a78bfa;
+        }
+
+        /* ===== CHAT AREA ===== */
+        .chat-container {
+            background: #0b0b14cc;
+            border-radius: 28px;
+            padding: 1.8rem;
+            min-height: 300px;
+            border: 1px solid #1a1a2e;
+            margin: 1.8rem 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            box-shadow: inset 0 8px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .msg {
+            padding: 0.9rem 1.5rem;
+            border-radius: 20px 20px 20px 4px;
+            max-width: 80%;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            animation: fadeSlide 0.35s ease;
+            backdrop-filter: blur(4px);
+        }
+
+        .msg.ai {
+            background: rgba(30, 27, 58, 0.7);
+            border-left: 3px solid #818cf8;
+            align-self: flex-start;
+            color: #e2e8f0;
+            border: 1px solid #2d2a4a;
+        }
+
+        .msg.user {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            align-self: flex-end;
+            border-radius: 20px 20px 4px 20px;
+            color: #fff;
+            box-shadow: 0 8px 20px #4f46e540;
+        }
+
+        .msg .time {
+            font-size: 0.55rem;
+            opacity: 0.4;
+            display: block;
+            margin-top: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        @keyframes fadeSlide {
+            from {
+                opacity: 0;
+                transform: translateY(12px) scale(0.97);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* ===== INPUT ROW ===== */
+        .input-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+
+        .input-row input {
+            flex: 2;
+            min-width: 200px;
+            padding: 1rem 1.6rem;
+            border-radius: 60px;
+            border: 1px solid #1e1e3a;
+            background: #0d0d18;
+            color: #f1f5f9;
+            font-size: 0.95rem;
+            outline: 2px solid transparent;
+            transition: 0.25s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .input-row input:focus {
+            border-color: #7c3aed;
+            outline: 2px solid #7c3aed50;
+            background: #121225;
+            box-shadow: 0 0 30px #7c3aed10;
+        }
+
+        .input-row input::placeholder {
+            color: #475569;
+            font-weight: 300;
+        }
+
+        .btn {
+            padding: 1rem 2.2rem;
+            border-radius: 60px;
+            border: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.25s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #7c3aed, #4f46e5);
+            color: #fff;
+            box-shadow: 0 10px 30px #4f46e550;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 16px 40px #4f46e580;
+        }
+
+        .btn-voice {
+            background: #16162e;
+            border: 1px solid #2d2a4a;
+            color: #cbd5e1;
+        }
+
+        .btn-voice:hover {
+            background: #22224a;
+            border-color: #818cf8;
+            box-shadow: 0 0 30px #7c3aed20;
+        }
+
+        .btn-voice i {
+            color: #60a5fa;
+        }
+
+        /* ===== QUICK CHIPS ===== */
+        .quick-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 1.2rem;
+            justify-content: center;
+        }
+
+        .chip {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid #1e1e3a;
+            padding: 0.5rem 1.4rem;
+            border-radius: 60px;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            cursor: pointer;
+            transition: 0.25s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .chip:hover {
+            background: #1a1a36;
+            border-color: #7c3aed60;
+            color: #e2e8f0;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px #7c3aed20;
+        }
+
+        .chip i {
+            color: #a78bfa;
+            font-size: 0.8rem;
+        }
+
+        /* ===== PREMIUM TEASER ===== */
+        .premium-section {
+            margin-top: 2.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            border-top: 1px solid #1a1a2e;
+            padding-top: 2rem;
+        }
+
+        .premium-left {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .premium-left .p-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
+
+        .premium-left .p-item i {
+            color: #fbbf24;
+            font-size: 1rem;
+        }
+
+        .premium-left .p-item strong {
+            color: #f1f5f9;
+            font-weight: 500;
+        }
+
+        .premium-badge-main {
+            background: linear-gradient(135deg, #fbbf2410, #f59e0b10);
+            border: 1px solid #fbbf2440;
+            padding: 0.6rem 1.8rem;
+            border-radius: 60px;
+            color: #fbbf24;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .premium-badge-main i {
+            font-size: 1.1rem;
+        }
+
+        .premium-badge-main span {
+            color: #94a3b8;
+            font-weight: 300;
+            font-size: 0.7rem;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            margin-top: 2rem;
+            text-align: center;
+            color: #334155;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer i {
+            color: #a78bfa;
+            margin: 0 4px;
+        }
+
+        .footer .divider {
+            color: #1e293b;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .main-container {
+                padding: 1.5rem;
+            }
+            .hero h2 {
+                font-size: 2rem;
+            }
+            .hero .sub-hero {
+                font-size: 1rem;
+            }
+            .brand-text h1 {
+                font-size: 1.3rem;
+            }
+            .header-right .founder-badge {
+                font-size: 0.65rem;
+                padding: 0.3rem 1rem;
+            }
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .premium-section {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .premium-badge-main {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .msg {
+                max-width: 95%;
+                font-size: 0.85rem;
+            }
+            .hero h2 {
+                font-size: 1.6rem;
+            }
+            .brand-icon {
+                width: 42px;
+                height: 42px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Orbs -->
+    <div class="glow-orb"></div>
+    <div class="glow-orb2"></div>
+
+    <div class="main-container">
+
+        <!-- ===== HEADER ===== -->
+        <header class="header">
+            <div class="brand">
+                <div class="brand-icon">T</div>
+                <div class="brand-text">
+                    <h1>Tanuj Sharma AI</h1>
+                    <div class="tag">
+                        <i class="fas fa-circle"></i> FUTURE OF INTELLIGENCE
+                    </div>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="founder-badge">
+                    <i class="fas fa-crown"></i> Founder
+                </div>
+                <div class="status-dot">
+                    <span class="dot"></span> Online
+                </div>
+            </div>
+        </header>
+
+        <!-- ===== HERO ===== -->
+        <section class="hero">
+            <h2>
+                <span class="highlight">Tanuj Sharma</span> ka AI
+            </h2>
+            <div class="sub-hero">
+                <strong>Main aapki kya madad kar sakta hoon?</strong>
+            </div>
+            <div class="badge-row">
+                <span><i class="fas fa-code"></i> Coding</span>
+                <span><i class="fas fa-lightbulb"></i> Ideas</span>
+                <span><i class="fas fa-brain"></i> Strategy</span>
+                <span><i class="fas fa-microphone"></i> Voice AI</span>
+            </div>
+        </section>
+
+        <!-- ===== CHAT AREA ===== -->
+        <div class="chat-container" id="chatArea">
+            <div class="msg ai">
+                <i class="fas fa-robot" style="margin-right: 8px; color: #a78bfa;"></i>
+                Namaste! Main Tanuj Sharma ka AI hoon. Aap coding, planning, ya kuch bhi poochh sakte hain. Main yahaan hoon aapki madad ke liye.
+                <span class="time">अभी</span>
+            </div>
+            <div class="msg user">
+                <i class="fas fa-user" style="margin-right: 6px;"></i>
+                Mujhe ek AI-based website banana hai.
+                <span class="time">अभी</span>
+            </div>
+        </div>
+
+        <!-- ===== INPUT ROW ===== -->
+        <div class="input-row">
+            <input type="text" id="userInput" placeholder="Type karein... ya Voice button dabayein" />
+            <button class="btn btn-primary" id="sendBtn">
+                <i class="fas fa-paper-plane"></i> Send
+            </button>
+            <button class="btn btn-voice" id="voiceBtn">
+                <i class="fas fa-microphone"></i> Voice
+            </button>
+        </div>
+
+        <!-- ===== QUICK CHIPS ===== -->
+        <div class="quick-chips">
+            <div class="chip" data-text="Mujhe ek AI startup ka idea chahiye">
+                <i class="fas fa-rocket"></i> Startup Idea
+            </div>
+            <div class="chip" data-text="Mere liye ek landing page design kar do">
+                <i class="fas fa-paint-brush"></i> Design
+            </div>
+            <div class="chip" data-text="Premium version mein kya milega?">
+                <i class="fas fa-gem"></i> Premium
+            </div>
+            <div class="chip" data-text="Tanuj Sharma ka vision kya hai?">
+                <i class="fas fa-question-circle"></i> Vision
+            </div>
+            <div class="chip" data-text="Mujhe coding mein help chahiye">
+                <i class="fas fa-code"></i> Coding Help
+            </div>
+        </div>
+
+        <!-- ===== PREMIUM TEASER ===== -->
+        <div class="premium-section">
+            <div class="premium-left">
+                <div class="p-item">
+                    <i class="fas fa-star"></i> <strong>Premium</strong> <span style="color:#64748b;">(Coming Soon)</span>
+                </div>
+                <div class="p-item">
+                    <i class="fas fa-infinity"></i> Unlimited Chat
+                </div>
+                <div class="p-item">
+                    <i class="fas fa-voice"></i> Voice Clone
+                </div>
+                <div class="p-item">
+                    <i class="fas fa-file-pdf"></i> PDF Analysis
+                </div>
+            </div>
+            <div class="premium-badge-main">
+                <i class="fas fa-crown"></i> Premium <span>• Jald hi</span>
+            </div>
+        </div>
+
+        <!-- ===== FOOTER ===== -->
+        <div class="footer">
+            <span><i class="fas fa-code"></i> Tanuj Sharma AI v3.0</span>
+            <span class="divider">|</span>
+            <span>Made with <i class="fas fa-heart" style="color:#f43f5e;"></i> by Tanuj Sharma</span>
+            <span class="divider">|</span>
+            <span><i class="fas fa-shield-alt"></i> Future AI</span>
+        </div>
+
+    </div>
+
+    <script>
+        // ============================================================
+        //  CHAT ENGINE
+        // ============================================================
+        const chatArea = document.getElementById('chatArea');
+        const userInput = document.getElementById('userInput');
+        const sendBtn = document.getElementById('sendBtn');
+
+        function addMessage(text, isUser = false) {
+            const div = document.createElement('div');
+            div.className = `msg ${isUser ? 'user' : 'ai'}`;
+            const icon = isUser ?
+                '<i class="fas fa-user" style="margin-right:6px;"></i>' :
+                '<i class="fas fa-robot" style="margin-right:6px; color:#a78bfa;"></i>';
+            div.innerHTML = `${icon} ${text} <span class="time">अभी</span>`;
+            chatArea.appendChild(div);
+            chatArea.scrollTop = chatArea.scrollHeight;
+        }
+
+        // Smart AI reply – professional + future-focused
+        function getTanujAIReply(input) {
+            const lower = input.toLowerCase();
+
+            if (lower.includes('madad') || lower.includes('help') || lower.includes('sakta') || lower.includes('kaise')) {
+                return 'Main har tarah ki madad kar sakta hoon – coding, architecture, product strategy, design, aur AI integration. Aap jo bhi batao, main usko shape dunga.';
+            } else if (lower.includes('website') || lower.includes('site') || lower.includes('landing')) {
+                return 'Website ke liye main modern stack suggest karunga – React, Next.js, Tailwind, aur AI APIs. Kya aapko design chahiye ya full-stack development?';
+            } else if (lower.includes('premium') || lower.includes('paid')) {
+                return 'Premium version mein aapko unlimited chat, voice cloning, PDF summarization, aur priority support milega. Yeh abhi development mein hai, jald launch hoga.';
+            } else if (lower.includes('tanuj') || lower.includes('vision') || lower.includes('founder')) {
+                return 'Tanuj Sharma ka vision hai ki AI democratize ho – har student, professional, aur creator ke liye personal AI assistant. Future AI sabki madad karega, chahe woh koi bhi ho.';
+            } else if (lower.includes('idea') || lower.includes('startup') || lower.includes('business')) {
+                return 'Startup idea ke liye sabse pehle problem identify karein. Phir solution, TAM, aur MVP. Main aapko business model, tech stack, aur go-to-market strategy mein guide kar sakta hoon.';
+            } else if (lower.includes('code') || lower.includes('coding') || lower.includes('programming')) {
+                return 'Coding mein main aapki madad kar sakta hoon – architecture, debugging, optimization, ya naye framework ka suggestion. Batao aap kis language ya project par kaam kar rahe ho?';
+            } else if (lower.includes('thanks') || lower.includes('thank you') || lower.includes('dhanyavaad')) {
+                return 'Aapka swagat hai! 😊 Agar aur kuch ho toh batao. Main yahaan hoon aapki journey mein saath dene ke liye.';
+            } else {
+                return 'Main Tanuj Sharma ka AI hoon. Mera objective hai aapki har possible madad karna – chahe woh technical ho, creative, ya strategic. Batao aapko kya chahiye?';
+            }
+        }
+
+        function handleSend() {
+            const text = userInput.value.trim();
+            if (!text) return;
+            addMessage(text, true);
+            userInput.value = '';
+
+            setTimeout(() => {
+                const reply = getTanujAIReply(text);
+                addMessage(reply, false);
+            }, 500);
+        }
+
+        sendBtn.addEventListener('click', handleSend);
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleSend();
+        });
+
+        // Quick Chips
+        document.querySelectorAll('.chip').forEach((chip) => {
+            chip.addEventListener('click', () => {
+                userInput.value = chip.dataset.text;
+                handleSend();
+            });
+        });
+
+        // ============================================================
+        //  VOICE RECOGNITION
+        // ============================================================
+        const voiceBtn = document.getElementById('voiceBtn');
+
+        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+            const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+            const recognition = new SR();
+            recognition.lang = 'hi-IN';
+            recognition.continuous = false;
+            recognition.interimResults = false;
+
+            voiceBtn.addEventListener('click', () => {
+                voiceBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Listening...';
+                recognition.start();
+            });
+
+            recognition.onresult = (e) => {
+                const spoken = e.results[0][0].transcript;
+                userInput.value = spoken;
+                voiceBtn.innerHTML = '<i class="fas fa-microphone"></i> Voice';
+                setTimeout(handleSend, 300);
+            };
+
+            recognition.onerror = () => {
+                voiceBtn.innerHTML = '<i class="fas fa-microphone"></i> Voice';
+                alert('Voice recognition failed. Please try again.');
+            };
+
+            recognition.onend = () => {
+                voiceBtn.innerHTML = '<i class="fas fa-microphone"></i> Voice';
+            };
+        } else {
+            voiceBtn.style.opacity = '0.5';
+            voiceBtn.title = 'Browser does not support voice';
+            voiceBtn.addEventListener('click', () => {
+                alert('Please use Chrome or Edge browser for voice input.');
+            });
+        }
+
+        // Console branding
+        console.log('🤖 Tanuj Sharma AI – Future of Intelligence');
+        console.log('💡 Built with ❤️ by Tanuj Sharma');
+    </script>
+
+</body>
+</html>
