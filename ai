@@ -699,7 +699,14 @@
             const icon = isUser ?
                 '<i class="fas fa-user" style="margin-right:6px;"></i>' :
                 '<i class="fas fa-robot" style="margin-right:6px; color:#a78bfa;"></i>';
-            div.innerHTML = `${icon} ${text} <span class="time">अभी</span>`;
+            const iconHolder = document.createElement('span');
+            iconHolder.innerHTML = icon; // Static icon markup only; user text is never parsed as HTML.
+            div.appendChild(iconHolder);
+            div.appendChild(document.createTextNode(' ' + text + ' '));
+            const time = document.createElement('span');
+            time.className = 'time';
+            time.textContent = 'अभी';
+            div.appendChild(time);
             chatArea.appendChild(div);
             chatArea.scrollTop = chatArea.scrollHeight;
         }
@@ -766,7 +773,12 @@
 
             voiceBtn.addEventListener('click', () => {
                 voiceBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Listening...';
-                recognition.start();
+                try {
+                    recognition.start();
+                } catch (error) {
+                    voiceBtn.innerHTML = '<i class="fas fa-microphone"></i> Voice';
+                    console.warn('Voice recognition could not start:', error);
+                }
             });
 
             recognition.onresult = (e) => {
